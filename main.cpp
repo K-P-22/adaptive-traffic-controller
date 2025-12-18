@@ -15,7 +15,7 @@ int main(){
     northSouth.setState("GREEN");
     eastWest.setState("RED");
 
-
+    for(int time = 0; time < 200; time++){
     /*
     
     
@@ -37,12 +37,12 @@ int main(){
     
 
         // Print status of the lights every 5 time units
-        if(time % 5 == 0){
-            cout << "Time: " << time << "s | North-South: " << northSouth.getState() << 
-            " | East-West: " << eastWest.getState() << endl;
-        }
+            if(time % 5 == 0){
+                cout << "Time: " << time << "s | North-South: " << northSouth.getState() << 
+                " | East-West: " << eastWest.getState() << endl;
+            }
 
-        this_thread::sleep_for(chrono::milliseconds(100));
+            this_thread::sleep_for(chrono::milliseconds(100));
     }
 
     cout << "Simulation complete." << endl;
