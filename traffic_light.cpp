@@ -35,6 +35,4 @@ void TrafficLight::setState(const string& newState){
     timer = 0;
 }
 
-int TrafficLight::SecsRed(){
-    SecondsRed++;
-}
+

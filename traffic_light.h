@@ -32,7 +32,6 @@ public:
     void setState(const string& newState);
 
     int SecsRed();
-    int SecondsRed = 0;
 
 };
 
