@@ -14,7 +14,7 @@
 using namespace std;
 
 int main(){
-    ofstream logFile("traffic_log.csv");
+    ofstream logFile("/Users/kylephillips/traffic_light/adaptive-traffic-controller/traffic_log.csv");
     logFile << "time,northSouth,eastWest" << endl; // CSV header
     cout << endl;
     cout << GREEN << "SMART TRAFFIC LIGHT SIMULATION " << RESET << endl;
