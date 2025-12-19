@@ -1,5 +1,6 @@
 // main.cpp
 #include <iostream>
+#include <fstream>
 #include <thread>
 #include <chrono>
 #include "traffic_light.h"
@@ -13,7 +14,10 @@
 using namespace std;
 
 int main(){
-    cout << "\n" << GREEN << "SMART TRAFFIC LIGHT SIMULATION " << RESET << endl;
+    ofstream logFile("traffic_log.csv");
+    logFile << "time,northSouth,eastWest" << endl; // CSV header
+    cout << endl;
+    cout << GREEN << "SMART TRAFFIC LIGHT SIMULATION " << RESET << endl;
     cout << GRAY << "---------------------------------------------" << RESET << endl;
 
     TrafficLight northSouth(30, 5, 43);
@@ -79,9 +83,11 @@ int main(){
         else ewColor = RED;
 
         // Print colored states every 5 time units
-        if(time % 2 == 1){ //Comment out if statement to see total status of light
+        if(time % 5 == 0){ //Comment out if statement to see total status of light
             cout << "Time: " << time << "s | North-South: " << nsColor << northSouth.getState() << RESET
              << " | East-West: " << ewColor << eastWest.getState() << RESET << endl;
+            //Writing to CSV file for python Visulazation
+            logFile << time << "," << northSouth.getState() << "," << eastWest.getState() << endl;
         }
 
         // sanity check
@@ -97,5 +103,6 @@ int main(){
     }
 
     cout << "Simulation complete." << endl;
+    logFile.close();
     return 0;
 }
