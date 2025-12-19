@@ -25,6 +25,10 @@ string TrafficLight::getState() const{
     return state;
 }
 
+int TrafficLight::getTimer() const{
+    return timer;
+}
+
 void TrafficLight::reset(){
     state = "RED";
     timer = 0;
